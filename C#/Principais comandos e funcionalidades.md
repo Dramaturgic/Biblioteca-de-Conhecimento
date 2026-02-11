@@ -1,123 +1,210 @@
 
-             ### VÁRIAVES e CONSTANTES
+````md
+# 🧠 Variáveis, Operadores e Console em C#
 
- 
 ---
 
-             TIPOS
-             Númericos (int e double) 
-             Literais (string) 
-             Lógicos (bool)
- 
-             SINTAXE PARA SE CRIAR UMA VÁRIAVEL
+# 🔹 VARIÁVEIS E CONSTANTES
 
+## 📌 Tipos de Dados
 
-             1) declara-se o tipo
-             2) defini-se o nome
-             3) atribuí-se um valor inicial
+### 🔢 Numéricos
+- `int`
+- `double`
 
+### 📝 Literais
+- `string`
 
-             int i_idade = 0;
-             double d_altura = 0;
-             string s_nome = "";
-             bool b_valida = false;
-             DateTime dt_cadastro = DateTime.MinValue;
+### 🔘 Lógicos
+- `bool`
 
+### 📅 Datas
+- `DateTime`
 
-             int i_idade = 0;
-             double d_altura = 0;
-             string s_nome = "Stephany";
-             bool b_valida = true;
-             DateTime dt_cadastro = DateTime.Now;
+---
 
+## 🏗 Sintaxe para criar uma variável
 
- 
+1. Declara-se o tipo  
+2. Define-se o nome  
+3. Atribui-se um valor inicial  
 
-             OPERADORES
-             Relacionais (bool)
-             igual --> i_nota ==10;
-             maior/igual --> i_nota >= 10;
-             menor/igual --> i_nota <= 10;
-             maior --> i_nota > 10;
-             menor --> i_nota < 10;
-             não igual --> i_nota != 10;
- 
+```csharp
+int i_idade = 0;
+double d_altura = 0;
+string s_nome = "";
+bool b_valida = false;
+DateTime dt_cadastro = DateTime.MinValue;
+````
 
-             Operadores Matemáticos, retornam (Numerais)
+### 📌 Exemplo com valores atribuídos
 
-             adição --> i_nro1 + i_nro2;
-             subtração --> i_nro1 - i_nro2;
-             multiplicação --> i_nro1 * i_nro2;
-             divisão --> i_nro1 / i_nro2;
-             obs: se o segundo número é diferente de 0.
+```csharp
+int i_idade = 0;
+double d_altura = 0;
+string s_nome = "Stephany";
+bool b_valida = true;
+DateTime dt_cadastro = DateTime.Now;
+```
 
-             radiciação --> Math.sqrt(d_altura);
-             potenciação --> Math.Pow(d_altura, 5);
- 
+---
 
-             O operador '+' em uma string, assume o papel de concatenador
-             ou seja, ele junta os strings. ("martelo"+"do"+"thor") --> "martelodothor".
+# 🔹 OPERADORES
 
-             Operadores Logicos, retornam (bool)
+---
 
-             E (&&) --> (i_nota <= 10 && i_nota >= 1);
+## ⚖️ Operadores Relacionais (retornam `bool`)
 
-             ...|10, 11,... ...120, 121, 122|...
+```csharp
+i_nota == 10;   // Igual
+i_nota >= 10;   // Maior ou igual
+i_nota <= 10;   // Menor ou igual
+i_nota > 10;    // Maior
+i_nota < 10;    // Menor
+i_nota != 10;   // Diferente
+```
 
- 
+---
 
-             OU (||) --> (i_nota >= 15 || i_nota <= 5);
+## ➕ Operadores Matemáticos (retornam numéricos)
 
-             ...3, 4, 5|... ...|15, 16, 17...
+```csharp
+i_nro1 + i_nro2;   // Adição
+i_nro1 - i_nro2;   // Subtração
+i_nro1 * i_nro2;   // Multiplicação
+i_nro1 / i_nro2;   // Divisão (⚠ segundo número ≠ 0)
+```
 
- 
+### 🧮 Operações Matemáticas Especiais
 
-             NEGAÇÃO (!) --> (!(10 == 10))
+```csharp
+Math.Sqrt(d_altura);      // Raiz quadrada
+Math.Pow(d_altura, 5);    // Potência
+```
 
- 
+---
 
- 
+## 🔤 Operador `+` com string
 
-             Comandos de saída de console
+Quando usado com `string`, o `+` vira **concatenador**:
 
+```csharp
+"martelo" + "do" + "thor"; 
+// Resultado: "martelodothor"
+```
 
-             SINTAXE
+---
 
+## 🔗 Operadores Lógicos (retornam `bool`)
 
-             Console.Write("Escreva a mensagem"); --> Após a escrita, o cursor permanece na mesma linha.
+### ✅ E (AND) → `&&`
 
-             console.WriteLine("Escreva a mensagem"); --> Após a escrita, o cursor pula para a linha de baixo.
+```csharp
+(i_nota <= 10 && i_nota >= 1);
+```
 
+### 🔀 OU (OR) → `||`
 
-             Características pecúliares do Write
+```csharp
+(i_nota >= 15 || i_nota <= 5);
+```
 
-            /n - Marcador de texto para saltar uma linha para baixo
+### ❌ NEGAÇÃO (NOT) → `!`
 
-            {x} - placeholder
+```csharp
+!(10 == 10);
+```
 
+---
 
-             SINTAXE /n
-             Console.Write("/nEscreva /na mensagem/n"); 
-             SINTAXE placeholder
+# 🔹 COMANDOS DE SAÍDA DO CONSOLE
 
-``
-            Console.Write("Escreve a mensagem {0}", variável);
-            static void Main(string[] args)
-            {
+---
 
-            int i_numero = 0;
+## 🖥 `Console.Write()`
 
-            Console.Write("O numero é {0}, i_numero")
+Escreve na tela e **permanece na mesma linha**.
 
-            }
-``
-            ## COMANDOS DE ENTRADA DO CONSOLE
-            ### SINTAXE
-            
-            Console.ReadLine(); --> Recebe o valor digitado pelo usuário através do teclado e após o <enter>, o cursor pula para a próxima linha.
-            obs: tudo o que é digitado no teclado é string
+```csharp
+Console.Write("Escreva a mensagem");
+```
 
-            Uma variável string recebendo do comando ReadLine não terá problema, pois string recebe string
-            ``s_nome = Console.ReadLine ();``
-            
-            ``b_valida = int.TryParse(Console.ReadLine(), out i_idade);``
+---
+
+## 🖥 `Console.WriteLine()`
+
+Escreve na tela e **pula para a próxima linha**.
+
+```csharp
+Console.WriteLine("Escreva a mensagem");
+```
+
+---
+
+## 📌 Características importantes
+
+### 🔽 Quebra de linha
+
+```csharp
+\n
+```
+
+Exemplo:
+
+```csharp
+Console.Write("\nEscreva \na mensagem\n");
+```
+
+---
+
+## 🎯 Placeholder `{0}`
+
+Permite inserir variáveis dentro da string.
+
+```csharp
+Console.Write("O número é {0}", i_numero);
+```
+
+### 📌 Exemplo completo
+
+```csharp
+static void Main(string[] args)
+{
+    int i_numero = 0;
+    Console.Write("O número é {0}", i_numero);
+}
+```
+
+---
+
+# 🔹 COMANDOS DE ENTRADA DO CONSOLE
+
+---
+
+## 📥 `Console.ReadLine()`
+
+Recebe o valor digitado pelo usuário.
+
+⚠ Tudo digitado pelo teclado é **string**.
+
+```csharp
+string s_nome = Console.ReadLine();
+```
+
+---
+
+## 🔄 Convertendo valores digitados
+
+Como `ReadLine()` retorna string, é necessário converter:
+
+### 🔢 Convertendo para `int`
+
+```csharp
+int i_idade;
+bool b_valida = int.TryParse(Console.ReadLine(), out i_idade);
+```
+
+* `TryParse` evita erro caso o usuário digite algo inválido
+* Retorna `true` ou `false`
+
+---
